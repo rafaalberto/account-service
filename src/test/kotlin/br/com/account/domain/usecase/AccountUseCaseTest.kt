@@ -19,8 +19,8 @@ class AccountUseCaseTest {
         account = Account(
             fullName = "Rafael",
             email = "rafael.alberto1703@gmail.com",
-            password = "123",
-            confirmPassword = "123",
+            password = "AbTp9!fok",
+            confirmPassword = "AbTp9!fok",
         )
     }
 
@@ -37,6 +37,15 @@ class AccountUseCaseTest {
             accountUseCase.createAccount(accountToCreate)
         }
         Assertions.assertEquals("Account should be active", exception.description)
+    }
+
+    @Test
+    fun `should throw error when try to create password and confirm password different`() {
+        val accountToCreate = account.copy(confirmPassword = "123")
+        val exception = Assertions.assertThrows(AccountException::class.java) {
+            accountUseCase.createAccount(accountToCreate)
+        }
+        Assertions.assertEquals("Password and Confirm Password must be equal", exception.description)
     }
 
 }
