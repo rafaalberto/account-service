@@ -26,7 +26,7 @@ class AccountUseCaseTest {
 
     @Test
     fun `should create account successfully`() {
-        accountUseCase.createAccount(account)
+        accountUseCase.validateAccount(account)
         Assertions.assertEquals(true, account.active)
     }
 
@@ -34,7 +34,7 @@ class AccountUseCaseTest {
     fun `should throw error when try to create inactive account`() {
         val accountToCreate = account.copy(active = false)
         val exception = Assertions.assertThrows(AccountException::class.java) {
-            accountUseCase.createAccount(accountToCreate)
+            accountUseCase.validateAccount(accountToCreate)
         }
         Assertions.assertEquals("Account should be active", exception.description)
     }
@@ -43,7 +43,7 @@ class AccountUseCaseTest {
     fun `should throw error when try to create password and confirm password different`() {
         val accountToCreate = account.copy(confirmPassword = "123")
         val exception = Assertions.assertThrows(AccountException::class.java) {
-            accountUseCase.createAccount(accountToCreate)
+            accountUseCase.validateAccount(accountToCreate)
         }
         Assertions.assertEquals("Password and Confirm Password must be equal", exception.description)
     }
