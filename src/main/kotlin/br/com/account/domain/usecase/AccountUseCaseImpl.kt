@@ -2,6 +2,7 @@ package br.com.account.domain.usecase
 
 import br.com.account.domain.entity.Account
 import br.com.account.domain.exception.AccountException
+import br.com.account.domain.validations.*
 import br.com.account.domain.validations.password.*
 
 class AccountUseCaseImpl : AccountUseCase {
