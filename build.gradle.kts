@@ -22,6 +22,7 @@ dependencies {
 	implementation("com.google.code.gson:gson:2.8.5")
 	implementation("io.springfox:springfox-swagger2:2.9.2")
 	implementation("io.springfox:springfox-swagger-ui:2.9.2")
+	implementation("com.google.code.gson:gson:2.8.9")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
