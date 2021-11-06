@@ -3,9 +3,7 @@ package br.com.account.api.controller
 import br.com.account.api.request.AccountRequest
 import br.com.account.api.request.asDomainModel
 import br.com.account.api.response.AccountResponse
-import br.com.account.domain.entity.Account
 import br.com.account.domain.usecase.AccountUseCase
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
