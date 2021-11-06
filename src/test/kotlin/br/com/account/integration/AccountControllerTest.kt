@@ -34,11 +34,44 @@ class AccountControllerTest {
             	"active": true
             }
         """.trimIndent()
-        val response: ResponseEntity<String> =
-            testRestTemplate.postForEntity(url, Gson().fromJson(jsonRequest, AccountRequest::class.java), String::class)
-
+        val response = doPost(jsonRequest, AccountRequest::class.java)
         Assertions.assertEquals(HttpStatus.OK, response.statusCode)
         Assertions.assertEquals("""{"status":"ok"}""", response.body)
     }
+
+    @Test
+    fun `should deny to create account when password is invalid`() {
+        val jsonRequest = """
+            {
+            	"fullName": "Rafael",
+            	"email": "rafael.alberto1703@gmail.com",
+            	"password": "123",
+            	"confirmPassword": "123",
+            	"active": true
+            }
+        """.trimIndent()
+        val response = doPost(jsonRequest, AccountRequest::class.java)
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, response.statusCode)
+        Assertions.assertEquals("""{"message":"Invalid password"}""", response.body)
+    }
+
+    @Test
+    fun `should deny to create account when password and confirm password are different`() {
+        val jsonRequest = """
+            {
+            	"fullName": "Rafael",
+            	"email": "rafael.alberto1703@gmail.com",
+            	"password": "Ra!12efoi",
+            	"confirmPassword": "123",
+            	"active": true
+            }
+        """.trimIndent()
+        val response = doPost(jsonRequest, AccountRequest::class.java)
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, response.statusCode)
+        Assertions.assertEquals("""{"message":"Password and Confirm Password must be equal"}""", response.body)
+    }
+
+    private fun doPost(json: String, typeOfClass: Class<AccountRequest>): ResponseEntity<String> =
+        testRestTemplate.postForEntity(url, Gson().fromJson(json, typeOfClass), String::class)
 
 }
