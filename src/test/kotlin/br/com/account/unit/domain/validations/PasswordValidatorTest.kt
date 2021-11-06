@@ -1,5 +1,6 @@
-package br.com.account.domain.validations
+package br.com.account.unit.domain.validations
 
+import br.com.account.domain.validations.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance

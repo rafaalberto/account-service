@@ -1,7 +1,9 @@
-package br.com.account.domain.usecase
+package br.com.account.unit.domain.usecase
 
 import br.com.account.domain.entity.Account
 import br.com.account.domain.exception.AccountException
+import br.com.account.domain.usecase.AccountUseCase
+import br.com.account.domain.usecase.AccountUseCaseImpl
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
