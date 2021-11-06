@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 class AccountController(private val accountUseCase: AccountUseCase) {
 
     @PostMapping
-    fun validate(@RequestBody request: AccountRequest) : ResponseEntity<AccountResponse> {
+    fun validate(@RequestBody request: AccountRequest): ResponseEntity<AccountResponse> {
         accountUseCase.validateAccount(request.asDomainModel())
         return ResponseEntity.ok(AccountResponse(status = "ok"))
     }
