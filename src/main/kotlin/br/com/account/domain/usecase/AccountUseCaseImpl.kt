@@ -10,7 +10,7 @@ class AccountUseCaseImpl : AccountUseCase {
             throw AccountException("Account should be active")
         }
         validatePassword(account.password)
-        if (account.password !== account.confirmPassword) {
+        if (account.password != account.confirmPassword) {
             throw AccountException("Password and Confirm Password must be equal")
         }
     }
