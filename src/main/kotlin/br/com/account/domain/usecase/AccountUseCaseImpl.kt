@@ -5,7 +5,7 @@ import br.com.account.domain.exception.AccountException
 import br.com.account.domain.validations.*
 
 class AccountUseCaseImpl : AccountUseCase {
-    override fun validateAccount(account: Account) {
+    override fun createAccount(account: Account) {
         validateFullName(account)
         validateEmail(account)
         validatePassword(account)

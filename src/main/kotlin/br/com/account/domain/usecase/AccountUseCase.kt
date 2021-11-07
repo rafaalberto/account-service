@@ -4,6 +4,6 @@ import br.com.account.domain.entity.Account
 
 interface AccountUseCase {
 
-    fun validateAccount(account: Account)
+    fun createAccount(account: Account)
 
 }

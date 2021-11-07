@@ -1,25 +1,36 @@
 package br.com.account.integration
 
+import br.com.account.AccountServiceApplication
 import br.com.account.api.request.AccountRequest
 import com.google.gson.Gson
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
+import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.test.web.client.postForEntity
+import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
+@SpringBootTest(
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+    classes = [AccountServiceApplication::class]
+)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class AccountControllerTest {
 
-    private val url = "http://localhost:8080/account"
+    @LocalServerPort
+    val randomServerPort: Int = 0
+
+    private lateinit var url: String
 
     private lateinit var testRestTemplate: TestRestTemplate
 
     @BeforeAll
     fun setUp() {
+        url = "http://localhost:${randomServerPort}/account"
         testRestTemplate = TestRestTemplate()
     }
 
@@ -35,8 +46,9 @@ class AccountControllerTest {
             }
         """.trimIndent()
         val response = doPost(jsonRequest, AccountRequest::class.java)
-        Assertions.assertEquals(HttpStatus.OK, response.statusCode)
-        Assertions.assertEquals("""{"status":"ok"}""", response.body)
+        Assertions.assertEquals(HttpStatus.CREATED, response.statusCode)
+        Assertions.assertEquals(
+            """{"status":"ok","message":"Account created successfully"}""", response.body)
     }
 
     @Test

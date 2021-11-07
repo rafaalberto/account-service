@@ -4,6 +4,7 @@ import br.com.account.api.request.AccountRequest
 import br.com.account.api.request.asDomainModel
 import br.com.account.api.response.AccountResponse
 import br.com.account.domain.usecase.AccountUseCase
+import org.springframework.http.HttpStatus.CREATED
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.RestController
 class AccountController(private val accountUseCase: AccountUseCase) {
 
     @PostMapping
-    fun validate(@RequestBody request: AccountRequest): ResponseEntity<AccountResponse> {
-        accountUseCase.validateAccount(request.asDomainModel())
-        return ResponseEntity.ok(AccountResponse(status = "ok"))
+    fun create(@RequestBody request: AccountRequest): ResponseEntity<AccountResponse> {
+        accountUseCase.createAccount(request.asDomainModel())
+        return ResponseEntity(
+            AccountResponse(status = "ok", message = "Account created successfully"), CREATED
+        )
     }
 
 }
