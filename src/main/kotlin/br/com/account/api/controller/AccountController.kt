@@ -19,7 +19,7 @@ class AccountController(private val accountUseCase: AccountUseCase) {
     fun create(@RequestBody request: AccountRequest): ResponseEntity<AccountResponse> {
         accountUseCase.createAccount(request.asDomainModel())
         return ResponseEntity(
-            AccountResponse(status = "ok", message = "Account created successfully"), CREATED
+            AccountResponse(message = "Account created successfully"), CREATED
         )
     }
 

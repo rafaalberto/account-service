@@ -48,7 +48,7 @@ class AccountControllerTest {
         val response = doPost(jsonRequest, AccountRequest::class.java)
         Assertions.assertEquals(HttpStatus.CREATED, response.statusCode)
         Assertions.assertEquals(
-            """{"status":"ok","message":"Account created successfully"}""", response.body)
+            """{"message":"Account created successfully"}""", response.body)
     }
 
     @Test
