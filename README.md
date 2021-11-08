@@ -14,9 +14,9 @@
 ## Decisões técnicas e arquiteturais
     - A aplicação foi desenvolvida em Kotlin por ser produtiva, minimalista e compatível com o framework Spring, facilitando a criação de manipulação de APIs
     - Desenvolvimento inspirado em Clean Architecture (foco principal no domínio e nas suas regras de negócio, deixando o framework em segundo plano), com as seguintes camadas:
-    - Domain: Core da aplicação com códigos de casos de uso e entidade referentes aos domínios da aplicação (Account).
-    - API: Códigos de Controller (mapeamento de API), Request (Dados de entrada) e Response (Dados de saída).
-    - Config: Camada responsável em tratar configurações como por exemplo Injeção de Dependências.
+      - Domain: Core da aplicação com códigos de casos de uso e entidades referentes aos domínios da aplicação (Account).
+      - API: Códigos de Controller (mapeamento de API), Request (Dados de entrada) e Response (Dados de saída).
+      - Config: Camada responsável em tratar configurações, por exemplo, Injeção de Dependências.
 
 ## Como utilizar a aplicação:
 - Para compilar a aplicação:
@@ -29,8 +29,7 @@
     #### java -jar account-service.jar
 
 - Como utilizar a aplicação:
-  - Opção 1: Swagger
-    - Através do browser digite o endereço - http://localhost:8080/swagger-ui.html
+  - Opção 1: Swagger (Acesso pelo browser no endereço - http://localhost:8080/swagger-ui.html)
   - Opção 2: API Client (Utilização do Postman ou Insomnia, por exemplo)
 
 
