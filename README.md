@@ -12,10 +12,10 @@
         - Swagger: Documentação e testes de APIs
 
 ## Decisões técnicas e arquiteturais
-    - A aplicação foi desenvolvida em Kotlin, sendo produtiva, minimalista e compatível com o framework Spring, facilitando a criação de manipulação de APIs
-    - Desenvolvimento inspirado em Clean Architecture, possuindo as seguintes camadas:
+    - A aplicação foi desenvolvida em Kotlin por ser produtiva, minimalista e compatível com o framework Spring, facilitando a criação de manipulação de APIs
+    - Desenvolvimento inspirado em Clean Architecture (foco principal no domínio e nas suas regras de negócio, deixando o framework em segundo plano), com as seguintes camadas:
     - Domain: Core da aplicação com códigos de casos de uso e entidade referentes aos domínios da aplicação (Account).
-    - API: Códigos de Controller, Request e Response
+    - API: Códigos de Controller (mapeamento de API), Request (Dados de entrada) e Response (Dados de saída).
     - Config: Camada responsável em tratar configurações como por exemplo Injeção de Dependências.
 
 ## Como utilizar a aplicação:
