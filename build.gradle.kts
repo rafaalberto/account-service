@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "br.com.account"
-version = "1.0.0-SNAPSHOT"
+version = ""
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
