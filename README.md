@@ -21,20 +21,19 @@
 ## Como utilizar a aplicação:
 - Para compilar a aplicação:
     - Através do terminal, acessar a pasta raiz da aplicação e digitar o comando:
-  #### ./gradlew build
+      #### ./gradlew build
     - Se a compilação for executada com sucesso, o arquivo executável da aplicação (account-service.jar) será gerado na pasta build/libs/account-service.jar
 
 - Como executar a aplicação:
   - Através do terminal, acessar a pasta (build/libs) onde está o arquivo account-service.jar e executar o seguinte comando:
-  ### java -jar account-service.jar
+    #### java -jar account-service.jar
 
 - Como utilizar a aplicação:
   - Opção 1: Swagger
     - Através do browser digite o endereço - http://localhost:8080/swagger-ui.html
-  - Opção 2: API Client (Utilize Postman ou Insomnia, por exemplo)
+  - Opção 2: API Client (Utilização do Postman ou Insomnia, por exemplo)
 
 
 - Exemplo de utilização (Insomnia)
-![img.png](img.png)
-
-  ![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)

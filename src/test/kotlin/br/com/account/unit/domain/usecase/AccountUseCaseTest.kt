@@ -19,8 +19,8 @@ class AccountUseCaseTest {
     fun setUp() {
         accountUseCase = AccountUseCaseImpl()
         account = Account(
-            fullName = "Rafael",
-            email = "rafael.alberto1703@gmail.com",
+            fullName = "Dom Pedro I",
+            email = "pedroI@gmail.com",
             password = "AbTp9!fok",
             confirmPassword = "AbTp9!fok",
         )
