@@ -3,9 +3,11 @@ package br.com.account.domain.usecase
 import br.com.account.domain.entity.Account
 import br.com.account.domain.exception.AccountException
 import br.com.account.domain.validations.*
+import org.apache.logging.log4j.kotlin.Logging
 
-class AccountUseCaseImpl : AccountUseCase {
+class AccountUseCaseImpl : AccountUseCase, Logging {
     override fun createAccount(account: Account) {
+        logger.info("Testing logs...")
         validateFullName(account)
         validateEmail(account)
         validatePassword(account)
