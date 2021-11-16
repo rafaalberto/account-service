@@ -7,7 +7,6 @@ import org.apache.logging.log4j.kotlin.Logging
 
 class AccountUseCaseImpl : AccountUseCase, Logging {
     override fun createAccount(account: Account) {
-        logger.info("Testing logs...")
         validateFullName(account)
         validateEmail(account)
         validatePassword(account)
@@ -38,8 +37,10 @@ class AccountUseCaseImpl : AccountUseCase, Logging {
             RepeatedCharacterValidator()
         )
         validators.forEach {
-            if (!it.isValid(account.password))
+            if (!it.isValid(account.password)) {
+                logger.error("password error $it")
                 throw AccountException("Invalid password")
+            }
         }
     }
 
