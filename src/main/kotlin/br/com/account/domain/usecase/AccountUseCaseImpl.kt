@@ -3,9 +3,14 @@ package br.com.account.domain.usecase
 import br.com.account.domain.entity.Account
 import br.com.account.domain.exception.AccountException
 import br.com.account.domain.validations.*
-import org.apache.logging.log4j.kotlin.Logging
+import org.slf4j.LoggerFactory
 
-class AccountUseCaseImpl : AccountUseCase, Logging {
+class AccountUseCaseImpl : AccountUseCase {
+
+    companion object {
+        private val logger = LoggerFactory.getLogger(this::class.java)
+    }
+
     override fun createAccount(account: Account) {
         validateFullName(account)
         validateEmail(account)
@@ -38,7 +43,7 @@ class AccountUseCaseImpl : AccountUseCase, Logging {
         )
         validators.forEach {
             if (!it.isValid(account.password)) {
-                logger.error("password error $it")
+                logger.error("password error")
                 throw AccountException("Invalid password")
             }
         }
