@@ -36,3 +36,9 @@
 - Exemplo de utilização (Insomnia)
 ![img_2.png](img_2.png)
 ![img_3.png](img_3.png)
+
+## Executar pelo Docker
+- Criar imagem:
+  - sudo docker image build -t rafaalberto17/account-service:1.0.0 .
+- Criar container:
+  - docker run -d --name account-service -p 8080:8080  rafaalberto17/account-service:1.0.0
